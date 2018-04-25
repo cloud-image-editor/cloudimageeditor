@@ -11,7 +11,6 @@ package cloudimageeditor
  */
 
 import (
-	"fmt"
 	"testing"
 
 	cloudimageeditorcore "github.com/cloud-image-editor/cloudimageeditor/core"
@@ -29,7 +28,7 @@ func TestHostname(t *testing.T) {
 	}
 	defer cloudimageeditorcore.UnmountImageFreeNbd(nbdDev, mntRoot)
 
-	fmt.Printf("TestHostname : nbdDev = %s, mntRoot = %s\n", nbdDev, mntRoot)
+	t.Logf("TestHostname : nbdDev = %s, mntRoot = %s\n", nbdDev, mntRoot)
 
 	err = cloudimageeditorcore.ExcuteModuleByName(mntRoot, "hostname", "TestHostname")
 	if err != nil {
